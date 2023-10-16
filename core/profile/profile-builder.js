@@ -133,7 +133,7 @@ let profileBuilder = {
 
         let core = rootRequire("core/core");
         if (!core.debugMode) {
-            profile.classMapping = btoa(classMapping);
+            profile.classMapping = global.btoa(classMapping);
         } else {
 
 
@@ -952,7 +952,7 @@ function normalizePath(objectToNormalize, serverUrl) {
 
     for (let i = 0; i < objectToNormalize.source.contentCSS.length; i++) {
 
-        let decodedCSS = atob(objectToNormalize.source.contentCSS[i].css);
+        let decodedCSS = global.atob(objectToNormalize.source.contentCSS[i].css);
         let pathParts = objectToNormalize.source.contentCSS[i].id.split('/');
         let path = "";
         if (pathParts.length > 1) {
@@ -973,7 +973,7 @@ function normalizePath(objectToNormalize, serverUrl) {
             }
         }
 
-        objectToNormalize.source.contentCSS[i].css = btoa(decodedCSS);
+        objectToNormalize.source.contentCSS[i].css = global.btoa(decodedCSS);
 
         /*
                 let css = require('css');

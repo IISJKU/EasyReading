@@ -690,7 +690,7 @@ function loadStaticComponents(core) {
             if (!fs.existsSync(pathToJavaScriptFile)) {
                 console.log("File not found:" + staticSources[i]);
             } else {
-                core.static.push(btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")));
+                core.static.push(global.btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")));
 
             }
         }
@@ -716,7 +716,7 @@ function loadStaticComponents(core) {
             if (!fs.existsSync(pathToCSSFile)) {
                 console.log("File not found:" + staticCSS[i]);
             } else {
-                core.staticCSS.push(btoa(fs.readFileSync(pathToCSSFile, "utf8")));
+                core.staticCSS.push(global.btoa(fs.readFileSync(pathToCSSFile, "utf8")));
 
             }
         }
@@ -959,7 +959,7 @@ function normalizePath(component, serverUrl) {
 
     for (let i = 0; i < component.contentCSS.length; i++) {
 
-        let decodedCSS = atob(component.contentCSS[i].css);
+        let decodedCSS = global.atob(component.contentCSS[i].css);
         let pathParts = component.contentCSS[i].id.split('/');
         let path = "";
         if (pathParts.length > 1) {

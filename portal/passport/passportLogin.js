@@ -1,4 +1,4 @@
-/** Passport login 
+/** Passport login
  * @module passport/login
  */
 
@@ -10,17 +10,17 @@ const IOS_CLIENT_ID = "584464554129-3vsvg5igvdh7cfsc0prjkjpikq7nqd1s.apps.google
 const client = new OAuth2Client(CHROME_CLIENT_ID);
 
 /**
-* Passport login function
-* @memberof module:passport/login
-* @param {Request} req Request object that holds the session id and is used for storing return Url 
-* @param {object} loginInfo Holds information about the current login, like current email and type. 
-* @param callback Returns a user profile and error object if something did go wrong. 
-*/
+ * Passport login function
+ * @memberof module:passport/login
+ * @param {Request} req Request object that holds the session id and is used for storing return Url
+ * @param {object} loginInfo Holds information about the current login, like current email and type.
+ * @param callback Returns a user profile and error object if something did go wrong.
+ */
 async function userLogin(req, loginInfo, callback) {
     let userProfile = {};
     let error = null;
 
-    //Client side login(extension, apps)...
+    // Client side login(extension, apps)...
     if (req.session._clientToken) {
 
         req.session.returnTo ="/client/welcome";
@@ -54,6 +54,7 @@ async function userLogin(req, loginInfo, callback) {
                         await currentProfile.loginAnonym(hashedUserLoginID, currentProfile.email, webSocketConnection);
                         webSocketConnection.sessionID = req.session.id;
                     }
+
                     webSocketConnection.setProfile(currentProfile);
                     let loginResult = {
                         type: "userLoginResult",
@@ -179,10 +180,10 @@ async function userLogin(req, loginInfo, callback) {
 }
 
 /**
-* Greates a random email adress for anonymous user
-* @memberof module:passport/login
-* @returns {Promise} returns a random email adress for anonymous user
-*/
+ * Greates a random email adress for anonymous user
+ * @memberof module:passport/login
+ * @returns {Promise} returns a random email adress for anonymous user
+ */
 async function createRandomEmail() {
     const databaseManager = require("../../core/database/database-manager");
     let email = null;
@@ -202,23 +203,23 @@ async function createRandomEmail() {
 }
 
 /**
-* Greates a random int
-* @memberof module:passport/login
-* @param {number} low Lowest number to randomize
-* @param {number} high Highest number to randomize
-* @returns {number} returns a random number
-*/
+ * Greates a random int
+ * @memberof module:passport/login
+ * @param {number} low Lowest number to randomize
+ * @param {number} high Highest number to randomize
+ * @returns {number} returns a random number
+ */
 function randomInt(low, high) {
     return Math.floor(Math.random() * (high - low) + low)
 }
 
 /**
-* Greates a anonymous user
-* @memberof module:passport/login
-* @param {Request} req Request object that holds the language and the google token
-* @param {number} uuid User ID
-* @returns {object} returns a login object with and anonymous user object
-*/
+ * Greates a anonymous user
+ * @memberof module:passport/login
+ * @param {Request} req Request object that holds the language and the google token
+ * @param {number} uuid User ID
+ * @returns {object} returns a login object with and anonymous user object
+ */
 async function createLoginInfoAnonym(req, uuid) {
     let locale = "en";
 
@@ -256,11 +257,11 @@ async function createLoginInfoAnonym(req, uuid) {
 }
 
 /**
-* Verify google token
-* @memberof module:passport/login
-* @param {string} token Google token 
-* @returns {object} returns a object with google id and email
-*/
+ * Verify google token
+ * @memberof module:passport/login
+ * @param {string} token Google token
+ * @returns {object} returns a object with google id and email
+ */
 async function verifyGoogleToken(token) {
     try {
         const ticket = await client.verifyIdToken({
@@ -280,24 +281,25 @@ async function verifyGoogleToken(token) {
             email: payload['email']
         };
     } catch (e) {
-        console.log("Error verifying Goolge Token:" + token);
+        console.log("Error verifying Google Token:" + token);
     }
 }
 
 /**
-* Creates login information for google login
-* @memberof module:passport/login
-* @param {Request} req Not used
-* @param {object} profile Holds the user profile 
-*/
+ * Creates login information for google login
+ * @memberof module:passport/login
+ * @param {Request} req Not used
+ * @param {object} profile Holds the user profile
+ */
 async function createLoginInfoGoogle(req, profile) {
     let locale = "en";
     if (profile._json) {
         if (profile._json.language) {
             locale = profile._json.language.split("_")[0];
+        } else if (profile._json.locale) {
+            locale = profile._json.locale;
         }
     }
-
     return {
         loginType: "Google",
         id: profile.id,
@@ -307,11 +309,11 @@ async function createLoginInfoGoogle(req, profile) {
 }
 
 /**
-* Creates login information for Facebook login
-* @memberof module:passport/login
-* @param {Request} req Not used
-* @param {object} profile Holds the user profile 
-*/
+ * Creates login information for Facebook login
+ * @memberof module:passport/login
+ * @param {Request} req Not used
+ * @param {object} profile Holds the user profile
+ */
 async function createLoginInfoFacebook(req, profile) {
     return {
         loginType: "Facebook",

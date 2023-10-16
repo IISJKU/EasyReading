@@ -53,7 +53,7 @@ class ComponentBase {
                     this.contentScripts.push(
                         {
                             id: this.scripts[i],
-                            source: btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")),
+                            source: global.btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")),
                         }
                     );
 
@@ -79,7 +79,7 @@ class ComponentBase {
                     this.contentCSS.push(
                         {
                             id: this.css[i],
-                            css: btoa(fs.readFileSync(pathToStyleSheet)),
+                            css: global.btoa(fs.readFileSync(pathToStyleSheet)),
                         }
                     );
                 }

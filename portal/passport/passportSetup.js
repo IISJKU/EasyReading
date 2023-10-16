@@ -4,9 +4,8 @@
  */
 
 const passport = require("passport");
-const googleStrategy = require("passport-google-oauth20");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const AnonymIdStrategy = require('passport-anonym-uuid').Strategy;
-const profleRepo = require("../repository/profileRepo");
 const config = require("../config/config");
 let passportLogin = require("./passportLogin");
 
@@ -51,7 +50,7 @@ passport.use(new AnonymIdStrategy(async (req, uuid, done) => {
  * @returns {object} The done object
  */
 passport.use(
-    new googleStrategy({
+    new GoogleStrategy({
         callbackURL: config.google.callbackURL,
         clientID: config.google.clientID,
         clientSecret: config.google.clientSecret,

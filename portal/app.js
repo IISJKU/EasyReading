@@ -110,13 +110,12 @@ const uploadFileController = require("./controller/api/uploadFileController");
 app.get('/login',clientLoginValidator, userController.setUser, localeController.setLocale, localeController.translateMain, localeController.translateBackEnd, (_, res) => res.render('caretaker_login', res.locals.context));
 app.get('/caretaker/login/google',clientLoginValidator, passport.authenticate("google"));
 app.get('/caretaker/login/facebook',clientLoginValidator, passport.authenticate("facebook"));
-app.get('/auth/callback', passport.authenticate("google"), authentication.redirectToOrigin);
-
+app.get('/auth/callback', passport.authenticate("google", { keepSessionInfo: true }), authentication.redirectToOrigin);
 //Client
 app.use('/client/login/anonym',clientLoginValidator,clientAnonymLoginController ,authentication.redirectToOrigin);
 app.use('/client/login',clientLoginValidator, clientGoogleLoginController);
 app.use('/client/login/facebook', clientLoginValidator,clientFacebookLoginController);
-app.get('/client/login/facebook/auth', passport.authenticate('facebook'), authentication.redirectToOrigin);
+app.get('/client/login/facebook/auth', passport.authenticate('facebook', { keepSessionInfo: true }), authentication.redirectToOrigin);
 //Logout
 app.get('/client/logout', clientLogoutController);
 

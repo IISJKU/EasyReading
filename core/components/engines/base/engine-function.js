@@ -222,7 +222,7 @@ class LocalFunction extends Function {
                     this.contentScripts.push(
                         {
                             id: this.engine.id+'/'+this.engine.version+this.javaScripts[i],
-                            source: btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")),
+                            source: global.btoa(fs.readFileSync(pathToJavaScriptFile, "utf8")),
                         });
 
                 }
@@ -246,7 +246,7 @@ class LocalFunction extends Function {
                     this.contentCSS.push(
                         {
                             id: this.engine.id+'/'+this.engine.version+this.styleSheets[i],
-                            css: btoa(fs.readFileSync(pathToStyleSheet)),
+                            css: global.btoa(fs.readFileSync(pathToStyleSheet)),
                         });
 
                 }

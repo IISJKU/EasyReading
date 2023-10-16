@@ -222,7 +222,7 @@ class AWSPollyTextToSpeech extends base.EngineBase {
 
                     }
 
-                    const uuidV4 = require('uuid/v4');
+                    const { v4: uuidV4 } = require('uuid');
                     let filename = uuidV4();
 
                     fs.writeFile(tempDirPath + filename + ".mp3", data.AudioStream, function (err) {

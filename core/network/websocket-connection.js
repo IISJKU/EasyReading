@@ -3,7 +3,7 @@ const CHROME_CLIENT_ID = "691784987953-qc6ohlnk2n6g38ea7mugvbgcfcpar6g6.apps.goo
 const FIREFOX_CLIENT_ID = "691784987953-2t52gjtb395j4ore0lel1526o5nboefd.apps.googleusercontent.com";
 const IOS_CLIENT_ID = "584464554129-3vsvg5igvdh7cfsc0prjkjpikq7nqd1s.apps.googleusercontent.com";
 const client = new OAuth2Client(CHROME_CLIENT_ID);
-const uuidV4 = require('uuid/v4');
+const { v4: uuidV4 } = require('uuid');
 
 class WebSocketConnection {
     constructor(ws, url,origin) {
@@ -19,20 +19,17 @@ class WebSocketConnection {
         this.recomendationTimeout = null;
         this.sessionID = null;
 
-        ws.on('message', function incoming(msg) {
-            webSocketConnection.messageReceived(msg);
+        ws.on('message', function incoming(msg, isBinary) {
+            const message = isBinary ? msg : msg.toString();
+            webSocketConnection.messageReceived(message);
         });
         ws.on('close', function close() {
             webSocketConnection.connectionClosed();
         });
-
-
     }
 
     setProfile(profile) {
-
         this.profile = profile;
-
         try {
             if (this.profile.ui_mode === "adaptive") {
                 this.startAdaptivity();
@@ -56,20 +53,15 @@ class WebSocketConnection {
             clearTimeout(this.recomendationTimeout);
             this.recomendationTimeout = null;
         }
-
         console.log("Adaptivity stopped");
-
     }
 
     async messageReceived(msg) {
-
         let errorMsg = null;
-
         try {
             if (msg === "[object Object]") {
                 return;
             }
-
             let core = null;
             let req = JSON.parse(msg);
             if (req.type !== "ping") {
@@ -197,21 +189,11 @@ class WebSocketConnection {
                     }else{
                         console.log("no embedded profile found")
                     }
-
-
-
-
-
                 }else{
-
                     console.log("Embedded site requested:"+this.origin);
                 }
-
-
             } else if (req.type === "cloudRequest") {
-
                 if (!this.profile) {
-
                     console.log("attempted a cloud request without a profile.");
                     try {
                         if (this.ws) {
@@ -324,18 +306,11 @@ class WebSocketConnection {
                 profileBuilder.normalizeIconPaths(currentProfile, this.url);
                 profileBuilder.normalizeRemoteAssetDirectoryPaths(this, websocketConnection.url);
                 this.sendMessage(currentProfile);
-
-
             } else if (req.type === "recommendationResult") {
-
-
                 let profileRecommendation = require("./../profile/profile-recommendation");
                 await profileRecommendation.createConfigurationForRecommendation(req.data, this.profile.id);
-
             } else if (req.type === "surveyResult") {
-
                 try {
-
                     let password = require('password-hash-and-salt');
                     let profile = this.profile;
                     if (this.profile.id) {
@@ -349,16 +324,11 @@ class WebSocketConnection {
                             let databaseManager = require("../database/database-manager");
                             let insertSurveyRequest = databaseManager.createRequest("survey_entry").insert(data);
                             await databaseManager.executeRequest(insertSurveyRequest);
-
-
                         });
                     }
-
-
                 } catch (error) {
                     console.log(error);
                 }
-
             }
 
         } catch (error) {
@@ -366,7 +336,6 @@ class WebSocketConnection {
         }
 
         return new Promise(function (resolve, reject) {
-
             if (errorMsg) {
                 console.log(errorMsg);
                 reject(errorMsg);
@@ -375,13 +344,9 @@ class WebSocketConnection {
             }
 
         });
-
-
     }
 
     sendMessage(msg) {
-
-
         try {
             this.ws.send(JSON.stringify(msg));
         } catch (error) {
@@ -390,27 +355,16 @@ class WebSocketConnection {
     }
 
     async connectionClosed() {
-
-
-        const session = require("express-session");
-        const passport = require("passport");
-
-        const app = require("../../portal/app");
         await this.logoutUser();
-
         if (this.sessionID) {
             let databaseManager = require("../database/database-manager");
             let deleteRoleRequest = databaseManager.createRequest("sessions").where("session_id", "=", this.sessionID).delete();
             await databaseManager.executeRequest(deleteRoleRequest);
         }
-
-
         this.stopAdaptivity();
-
         let network = require("./network");
         network.removeWebSocketConnection(this);
         console.log("Closed");
-
     }
 
     createUserDirectory() {

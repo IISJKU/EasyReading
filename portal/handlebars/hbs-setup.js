@@ -307,7 +307,7 @@ hbs.registerHelper('createTTSButton', function (speechElements, lang) {
  * @returns {string} renderd HTML
  **/
 function createAudioButton(audioElements){
-    audioElements = btoa(JSON.stringify(audioElements));
+    audioElements = global.btoa(JSON.stringify(audioElements));
     return ' <button type="button" class="er-audio-player" data-audio-elements="'+audioElements+'">' +
         '<img src="/images/setup/text-to-speech.png" alt="play audio">' +
         '</button>';

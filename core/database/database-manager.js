@@ -65,34 +65,26 @@ let DatabaseManager = {
     },
 
     createOrSyncTablesFromSchema: async function (schema, tableName) {
-
         let errorMsg = null;
-
         try {
             let $RefParser = require('json-schema-ref-parser');
-
-            let completeSchema = await $RefParser.bundle(schema).catch(function (error) {
-                console.log(error);
-            });
-
-            if (typeof tableName === "undefined") {
-                tableName = completeSchema.title;
+            let completeSchema = await $RefParser.bundle(schema);
+            if (completeSchema) {
+                if (typeof tableName === "undefined") {
+                    tableName = completeSchema.title;
+                }
+                if (!completeSchema.$id) {
+                    completeSchema.$id = tableName;
+                }
+                databaseTableSchemas.push({
+                    tableName: tableName,
+                    schema: completeSchema,
+                });
+                await createTablesFromSchema(tableName, completeSchema);
             }
-            if (!completeSchema.$id) {
-                completeSchema.$id = tableName;
-            }
-            databaseTableSchemas.push({
-                tableName: tableName,
-                schema: completeSchema,
-            });
-
-
-            await createTablesFromSchema(tableName, completeSchema);
         } catch (error) {
             errorMsg = error;
         }
-
-
         return new Promise(function (resolve, reject) {
             if (errorMsg) {
                 reject(errorMsg);
@@ -100,7 +92,6 @@ let DatabaseManager = {
                 resolve();
             }
         });
-
     },
 
     createRequest: function (tableName) {
@@ -448,9 +439,10 @@ function getColumnValuePairsForObject(object, schema, considerID = false) {
 }
 
 let Ajv = require('ajv');
-let ajv = new Ajv({
-    unknownFormats: ['color'],
-});
+const $RefParser = require("json-schema-ref-parser");
+let ajv = new Ajv();
+
+ajv.addFormat('color', true);  // Ignore 'color' format in schemas
 
 function validateObject(object, schema) {
 

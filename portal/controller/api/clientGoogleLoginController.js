@@ -17,22 +17,27 @@ const passport = require("passport");
  */
 router.get('/', function(req,res,next){
 
-    if(req.query.token){
+    if(req.query.token) {
         req.session.returnTo = "/client/welcome";
         req.session._clientToken = req.query.token;
-        if(req.session._select_account){
-            passport.authenticate('google', { prompt: 'select_account', failureRedirect: '/client/login', })(req,res,next);
+        if(req.session._select_account) {
+            passport.authenticate(
+                'google',
+                { prompt: 'select_account', failureRedirect: '/client/login', keepSessionInfo: true })
+            (req,res,next);
         }else{
-            passport.authenticate('google')(req,res,next);
+            passport.authenticate('google', {keepSessionInfo: true })(req,res,next);
         }
 
-    }else if(req.session._clientToken){
+    } else if(req.session._clientToken){
         req.session.returnTo = "/client/welcome";
         if(req.session._select_account){
-            passport.authenticate('google', { prompt: 'select_account', failureRedirect: '/client/login', })(req,res,next);
+            passport.authenticate(
+                'google',
+                { prompt: 'select_account', failureRedirect: '/client/login', keepSessionInfo: true })
+            (req,res,next);
         }else{
-            passport.authenticate('google')(req,res,next);
-
+            passport.authenticate('google', {keepSessionInfo: true })(req,res,next);
         }
 
     }else{

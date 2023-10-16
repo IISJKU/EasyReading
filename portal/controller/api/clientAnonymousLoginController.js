@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 
     passport.authenticate('anonymId', {
             failureRedirect: '/client/login/anonym',
-            session: true
+            keepSessionInfo: true
         }
     )(req, res, next);
 });

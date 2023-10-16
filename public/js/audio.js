@@ -44,7 +44,7 @@ let audioPlayer = {
 
 
 
-        this.elementsToPlay =  JSON.parse(atob($(button).data("audio-elements")));
+        this.elementsToPlay =  JSON.parse(global.atob($(button).data("audio-elements")));
 
         audioPlayer.toggleAudioButton(button);
         this.currentButton = button;

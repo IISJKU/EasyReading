@@ -75,7 +75,6 @@ class ArasaacPictureDictionary extends base.EngineBase {
             method: 'GET',
         };
 
-        const request = require('request');
         request(options, function (err, res, body) {
             if (err) {
                 callback(new ioType.IOTypes.Error("Error processing request"));
@@ -128,7 +127,6 @@ class ArasaacPictureDictionary extends base.EngineBase {
                     imageFound = false;
                 }
                 if (!imageFound) {
-                    const localeService = require("../../../../core/i18n/locale-service");
                     const message = localeService.translateToLanguage(
                         "No images found.", profile.locale);
                     callback(new ioType.IOTypes.NoResult(message));

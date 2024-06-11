@@ -31,12 +31,12 @@
     </div>
 
     <main>
-        <form method="POST" action="/client/setup">
+        <form method="POST" action="/client/setup" aria-label="Setup Form">
 
             <div class="row">
                 <div class="medium-12 columns">
                     <div class="row-header">
-                        <h2 id="welcome_to_easy_reading">
+                        <h2 id="welcome_to_easy_reading" aria-label="Welcome to Easy Reading">
                         {{{createTTSButton "welcome_to_easy_reading" lang}}}{{welcome_to_easy_reading}}
                         </h2>
                     </div>
@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="columns small-2 large-2">
                     <button class="widget widget_large container" name="personalizedProfile" formmethod="post"
-                            value="1">
+                            value="1" aria-label="Create Personalized Profile">
                         <img src="/images/setup/step1/account-avatar.png" alt="" class="avatar-image">
 
                         <span class="info" id="button1_text" data-audio-src="/audio/step0/{{lang}}/button1_text.mp3">
@@ -79,7 +79,7 @@
 
                 <div class="columns small-2 large-2">
                     <button class="widget widget_large container" name="defaultProfile" formmethod="post"
-                            value="1">
+                            value="1" aria-label="Create Default Profile">
                         <img src="/images/setup/step1/anonymous-avatar.png" alt="" class="avatar-image">
 
                         <span id="create_default_profile_button_text">

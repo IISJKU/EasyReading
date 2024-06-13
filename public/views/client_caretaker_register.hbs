@@ -12,7 +12,7 @@
 
 <div class="row wrapper">
 
-    <div class="medium-3 columns" aria-label="Navigation">
+    <div class="medium-3 columns">
         <nav>
             {{> nav_client }}
             {{> nav_user_info }}
@@ -25,10 +25,10 @@
         <main>
 
             <div class="row columns">
-                <h1 aria-label="Page Title Register Caretaker">{{page_registercaretaker_title}}</h1>
-                <form id="submit" method="post" aria-label="Registration Form">
+                <h1>{{page_registercaretaker_title}}</h1>
+                <form id="submit" method="post">
                     {{#if errorMessages.length}}
-                        <div data-closable class="jsFeedbackViewer alert callout alert-callout-border" aria-label="Error Messages">
+                        <div data-closable class="jsFeedbackViewer alert callout alert-callout-border">
                             <p class="jsFeedbackViewerText">
                                 {{#each errorMessages}}
                                     <span style="display: block;">
@@ -46,12 +46,12 @@
                         </div>
                     {{/if}}
                     <div class="form-group">
-                        <label for="email" aria-label="Email Label">{{page_registercaretaker_label_google}}</label>
-                        <input type="email" class="form-control" name="email" id="email" aria-label="Email Input">
+                        <label for="email">{{page_registercaretaker_label_google}}</label>
+                        <input type="email" class="form-control" name="email" id="email">
                     </div>
 
-                    <input type="submit" value="{{Save}}" aria-label="Submit Button"/>
-                    <a class="button" href="/client/caretakers" aria-label="Cancel Link">{{Cancel}}</a>
+                    <input type="submit" value="{{Save}}"/>
+                    <a class="button" href="/client/caretakers">{{Cancel}}</a>
                 </form>
             </div>
 

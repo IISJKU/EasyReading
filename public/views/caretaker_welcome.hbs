@@ -11,8 +11,8 @@
     <div class="row wrapper">
         <div class="medium-3 columns">
             <nav>
-                {{> nav_backend }}
-                {{> nav_user_info }}
+            {{> nav_backend }}
+            {{> nav_user_info }}
             </nav>
         </div>
 
@@ -42,21 +42,21 @@
                 {{#hasRole user "caretaker"}}
 
                 {{else}}
-                {{#hasRole user "client"}}
-                <form id="submit" method="post" aria-label="Upgrade Information Form">
+                    {{#hasRole user "client"}}
+                    <form id="submit" method="post">
 
-                    <h2>{{er_backend_upgarde_info_title}}</h2>
-                    <fieldset class="fieldset">
-                        <legend>{{er_backend_upgarde_info}}</legend>
-                        <input id="upgrade_yes" type="radio" name="upgrade" value="yes" checked> <label
-                            for="upgrade_yes"> {{er_backend_upgarde_info_yes}}</label><br>
-                        <input id="upgrade_no" type="radio" name="upgrade" value="no"><label for="upgrade_no">
-                            {{er_backend_upgarde_info_no}}</label><br>
+                        <h2>{{er_backend_upgarde_info_title}}</h2>
+                        <fieldset  class="fieldset">
+                            <legend>{{er_backend_upgarde_info}}</legend>
+                            <input id="upgrade_yes" type="radio" name="upgrade" value="yes" checked> <label for="upgrade_yes"> {{er_backend_upgarde_info_yes}}</label><br>
+                            <input id="upgrade_no" type="radio" name="upgrade" value="no"><label for="upgrade_no"> {{er_backend_upgarde_info_no}}</label><br>
 
-                        <input type="submit" name="upgrade" value="Submit">
-                    </fieldset>
-                </form>
-                {{/hasRole}}
+                            <input type="submit" name="upgrade" value="Submit">
+                        </fieldset>
+
+
+                    </form>
+                    {{/hasRole}}
                 {{/hasRole}}
 
             </main>
@@ -66,5 +66,4 @@
     </div>
 
 </body>
-
 </html>

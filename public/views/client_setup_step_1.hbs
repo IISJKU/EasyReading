@@ -47,7 +47,7 @@
 
     <main>
 
-        <form id="wizard-form" method="POST" action="/client/setup">
+        <form id="wizard-form" method="POST" action="/client/setup" aria-label="Wizard Form">
 
             <div class="main-container">
                 <div class="row">
@@ -94,7 +94,7 @@
                 </div>
 
                 <!-- SECOND QUESTION -->
-                <div id="tts-speed-container" {{#ifEquals setupInformation.[0].tts "yes"}} {{else}} style="display: none;"  {{/ifEquals}} >
+                <div id="tts-speed-container" {{#ifEquals setupInformation.[0].tts "yes"}} {{else}} style="display: none;"  {{/ifEquals}} aria-label="Text-to-Speech Speed">
                     <div class="row">
                         <div class="medium-12 columns">
                             <div class="row-header">

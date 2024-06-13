@@ -41,7 +41,7 @@
 
                     <h1>My Sites</h1>
                     <form method="POST" action="deleteEmbeddedSite">
-                        <table>
+                        <table aria-label="My Sites Table">
                             <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Url</th>
@@ -56,8 +56,8 @@
                                     <td> {{ title }}</td>
                                     <td> {{ url }}</td>
                                     <td>{{profileTitle}}</td>
-                                    <td><a href="createEditEmbeddedSite?id={{id}}">Edit</a> </td>
-                                    <td><input type="submit" name="delete_{{ id }}" value="Delete"></td>
+                                    <td><a href="createEditEmbeddedSite?id={{id}}" aria-label="Edit Site">Edit</a> </td>
+                                    <td><input type="submit" name="delete_{{ id }}" value="Delete" aria-label="Delete Site"></td>
                                 </tr>
 
                             {{/each}}
@@ -69,7 +69,7 @@
 
                 <form method="POST" action="deleteProfile">
                     <h1>My Profiles</h1>
-                    <table>
+                    <table aria-label="My Profiles Table">
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Edit</th>
@@ -81,12 +81,12 @@
                         {{#each profiles}}
                             <tr>
                                 <td> {{ title }}</td>
-                                <td><a href="createEditEmbeddedProfile?id={{id}}">Edit</a> </td>
-                                <td><a href="embedded-configure?id={{pid}}">Edit</a> </td>
+                                <td><a href="createEditEmbeddedProfile?id={{id}}" aria-label="Edit Profile">Edit</a> </td>
+                                <td><a href="embedded-configure?id={{pid}}" aria-label="Edit Profile Configuration">Edit</a> </td>
                                 {{#if used}}
                                     <td>Profile used in site</td>
                                 {{else}}
-                                    <td><input type="submit" name="delete_{{ id }}" value="Delete"></td>
+                                    <td><input type="submit" name="delete_{{ id }}" value="Delete" aria-label="Delete Profile"></td>
                                 {{/if}}
                             </tr>
 
@@ -94,7 +94,7 @@
 
                     </table>
                 </form>
-                <a href="createEditEmbeddedProfile">Create new profile</a>
+                <a href="createEditEmbeddedProfile" aria-label="Create new profile">Create new profile</a>
             </div>
         </main>
     </div>

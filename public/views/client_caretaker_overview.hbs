@@ -12,7 +12,7 @@
 <body>
 <div class="row wrapper">
 
-    <div class="medium-3 columns">
+    <div class="medium-3 columns" aria-label="Navigation">
         <nav>
             {{> nav_client }}
             {{> nav_user_info }}
@@ -26,13 +26,13 @@
 
             <div class="row columns">
 
-                <h1 id="assistants_heading">{{{createTTSButton "page_caretakerlist_title:assistants_heading,page_client_caretaker_info,caretaker_name_label,caretaker_email_label" lang}}}{{page_caretakerlist_title}}<img src="/images/assistants.png" id="assistants" alt=""></h1>
+                <h1 id="assistants_heading" aria-label="Assistants Heading">{{{createTTSButton "page_caretakerlist_title:assistants_heading,page_client_caretaker_info,caretaker_name_label,caretaker_email_label" lang}}}{{page_caretakerlist_title}}<img src="/images/assistants.png" id="assistants" alt="assistant image logo"></h1>
 
 
-                <p id="page_client_caretaker_info">{{page_client_caretaker_info}}</p>
-                <form id="submit" method="post">
+                <p id="page_client_caretaker_info" aria-label="Client Caretaker Info">{{page_client_caretaker_info}}</p>
+                <form id="submit" method="post" aria-label="Form">
                     {{#if errorMessages.length}}
-                        <div data-closable class="jsFeedbackViewer alert callout alert-callout-border">
+                        <div data-closable class="jsFeedbackViewer alert callout alert-callout-border" aria-label="Error Messages">
                             <p class="jsFeedbackViewerText">
                                 {{#each errorMessages}}
                                     <span style="display: block;">
@@ -50,15 +50,15 @@
                         </div>
                     {{/if}}
                     <div class="form-group">
-                        <label for="email" id="caretaker_name_label">{{caretaker_name_label}} *</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
+                        <label for="email" id="caretaker_name_label" aria-label="Caretaker Name">{{caretaker_name_label}} *</label>
+                        <input type="text" class="form-control" name="name" id="name" required aria-required="true" aria-label="Name Input">
                     </div>
                     <div class="form-group">
-                        <label for="email" id="caretaker_email_label">{{caretaker_email_label}} *</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <label for="email" id="caretaker_email_label" aria-label="Caretaker Email">{{caretaker_email_label}} *</label>
+                        <input type="email" class="form-control" name="email" id="email" required aria-required="true" aria-label="Email Input">
                     </div>
 
-                    <input type="submit" value="{{Save}}"/>
+                    <input type="submit" value="{{Save}}" aria-label="Submit Button"/>
                 </form>
 
 
@@ -66,7 +66,7 @@
 
                     <hr>
                     <h2 class="caretaker_list_heading">{{page_caretakerlist_select}}</h2>
-                    <form id="submit" method="post">
+                    <form id="submit" method="post" aria-label="Form">
                         <ul class="no-bullet">
                             {{#each existingClientCarerRelations}}
                                 <li>

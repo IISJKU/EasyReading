@@ -1,0 +1,85 @@
+/* Global styles */
+
+/* Global colors */
+:root {
+  --color-primary: #1779ba; /* Primary color */
+  --color-primary-dark: #00395e; /* Primary darker color */
+  --color-blue-100: #0060DF;
+  --color-blue-200: #70adff;
+  --color-blue-300: #b5d2db;
+  --color-blue-400: #0052be;
+  --color-blue-500: #00006e;
+  --color-blue-600: #0000cc;
+  --color-light-blue: #2e7589; /* Light blue color */
+  --color-light-blue-secondary: #618285; /* Light blue secondary color */
+  --color-active-primary: #0E6489; /* Active primary color */
+  --color-active-secondary: #0c5676; /* Active secondary color */
+  --color-info: #17a2b8; /* Info color */
+  --color-secondary: #6c757d; /* Secondary color */
+  --color-success: #28a745; /* Success color */
+  --color-green-100: #9dedbb;
+  --color-green-200: #3adb76;
+  --color-danger: #dc3545; /* Danger color */
+  --color-red: #ff0000;
+  --color-red-100: #e6a59b;
+  --color-orange-100: #ffd780;
+  --color-orange-200: #ff9012;
+  --color-warning: #ffc107; /* Warning color */
+  --color-highlight: #ffff00; /* Highlight color */
+  --color-yellow: #f9dc5c;
+  --color-light-purple: #432f3b; /* Light purple color */
+  --color-gray: #c0c0c0; /* Gray color */
+  --color-body-bg: #F8F9FA; /* Body background color */
+  --color-light: #f8f9fa; /* Light color */
+  --color-white: #ffffff;
+  --color-white-100: #cacaca;
+  --color-white-200: #e6e6e6;
+  --color-white-300: #E1E4E6;
+  --color-white-400: #e6f2f7;
+  --color-white-500:#ffe6e6;
+  --color-white-600: #eee;
+  --color-white-700: #ddd;
+  --color-white-800: #f8f8f8;
+  --color-active: #8FAADC; /* Active color */
+  --color-dark: #343a40; /* Dark color */
+  --color-black: #000; /* Black color */
+  --color-black-100: #333;
+}
+/* Global spacing sizes */
+:root {
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-sm: 12px;
+  --spacing-m: 16px;
+  --spacing-ml: 20px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxxl: 40px;
+}
+
+/* Global border radius */
+:root {
+  --border-radius-xs: 2px;
+  --border-radius-sxs: 4px;
+  --border-radius-s: 6px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 20px;
+}
+
+/* Global font sizes */
+:root {
+  --font-size-xs: 12px;
+  --font-size-s: 14px;
+  --font-size-m: 16px;
+  --font-size-l: 18px;
+  --font-size-xl: 22px;
+  --font-size-xxl: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}

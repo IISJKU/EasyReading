@@ -40,12 +40,12 @@
             <div class="row columns">
 
                 <form id="submit" method="post">
-                    <label for="title">Title: <input type="text" name="title" id="title" value="{{title}}" aria-label="Title"></label>
-                    <label for="url">URL: <input type="url" name="url" id="url" value="{{url}}" aria-label="URL"></label>
+                    <label>Title: <input type="text" name="title" value="{{title}}"></label>
+                    <label>URL: <input type="url" name="url" value="{{url}}"></label>
 
                     <label for="profile">Choose a profile:</label>
 
-                    <select name="profile" id="profile" aria-label="Select Profile">
+                    <select name="profile" id="profile">
                         {{#each profiles}}
                             {{#ifEquals pid ../pid}}
                                 <option value="{{id}}" selected="selected">{{title}}</option>
@@ -65,15 +65,15 @@
                         {{/if}}
                     </div>
 
-                    <input id="file_upload" type="file" onchange="loadFile()" aria-label="Upload Logo"><br>
-                    <button id="upload" onclick="uploadFile()" style="display: none" type="button" aria-label="Upload">Upload..</button>
+                    <input id="file_upload" type="file" onchange="loadFile()"><br>
+                    <button id="upload" onclick="uploadFile()" style="display: none" type="button">Upload..</button>
 
 
                     {{#if logo}}
 
-                        <button id="clear" onclick="clearFile()" type="button" aria-label="Clear">Clear</button>
+                        <button id="clear" onclick="clearFile()" type="button">Clear</button>
                     {{else}}
-                        <button id="clear" onclick="clearFile()" type="button" style="display: none" aria-label="Clear">Clear</button>
+                        <button id="clear" onclick="clearFile()" type="button" style="display: none">Clear</button>
                     {{/if}}
                     <input type="hidden" id="logo" name="logo" value=""><br>
 
@@ -86,7 +86,7 @@
                     <input type="hidden" name="id" value="{{id}}">
 
 
-                    <input type="submit" value="save" aria-label="Save"/>
+                    <input type="submit" value="save"/>
                 </form>
 
 

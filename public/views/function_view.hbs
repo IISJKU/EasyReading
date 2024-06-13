@@ -44,19 +44,19 @@
                 <td>{{this.title}}</td>
                 <td>{{this.description}}</td>
                 {{#if this.active}}
-                    <td><input type="submit" name="cf_{{this.id}}" value="deactivate" aria-label="Deactivate"> </td>
+                    <td><input type="submit" name="cf_{{this.id}}" value="deactivate"> </td>
                 {{else}}
-                    <td><input type="submit" name="cf_{{this.id}}" value="activate" aria-label="Activate"> </td>
+                    <td><input type="submit" name="cf_{{this.id}}" value="activate"> </td>
                 {{/if}}
                 <td><a href="function-editor?id={{this.id}}">Edit</a> </td>
-                <td><input type="submit" name="cf_{{this.id}}" value="delete" aria-label="Delete">  </td>
+                <td><input type="submit" name="cf_{{this.id}}" value="delete">  </td>
             </tr>
         {{/each}}
     </form>
 
 </table>
 <br>
-<a href="welcome" aria-label="Go back">Back</a>
+<a href="welcome">Back</a>
 </body>
 
 </html>

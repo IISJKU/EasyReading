@@ -778,14 +778,5 @@
 	"Symbol Search": "Symbolsuche",
 	"Symbol Search with ARASAAC": "Symbolsuche mit ARASAAC",
 	"No images found.": "Keine Bilder gefunden.",
-	"Creates a screenruler for better reading": "Erstellt ein Bildschirmlineal für besseres Lesen",
-	"translate-ai.2.0.hf_tr.title": "AI Textübersetzer",
-	"translate-ai.2.0.hf_tr.description": "Diese Funktion übersetzt Text mithilfe eines AI Übersetzungsmodells.",
-	"translate-ai.2.0.hf_tr.source-title": "https://huggingface.co/",
-	"translate-ai.2.0.hf_tr.source-url": "https://huggingface.co/",
-	"translate-ai.2.0.hf_tr.howToUse": "",
-	"Hugging Face: Translate Paragraph": "Hugging Face: Absatz übersetzen",
-	"Translate a paragraph via Hugging Face API": "Übersetzen Sie einen Absatz über die Hugging Face API",
-	"Hugging Face: Translate Word": "Hugging Face: Wort übersetzen",
-	"Translate a word via Hugging Face API": "Übersetzen Sie ein Wort über die Hugging Face API"
+	"Creates a screenruler for better reading": "Erstellt ein Bildschirmlineal für besseres Lesen"
 }

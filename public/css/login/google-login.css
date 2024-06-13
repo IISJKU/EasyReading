@@ -1,13 +1,11 @@
-@import "../global.css";
-
 #customBtn {
     display: inline-block;
-    background: var(--color-light);
-    color: var(--color-primary-dark);
-    width: 130px;
-    border-radius: var(--border-radius-m);
-    border: thin solid var(--color-primary-dark);
-    /* box-shadow: 1px 1px 1px grey; */
+    background: white;
+    color: #444;
+    width: 190px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
     text-decoration: none;
 }
@@ -28,7 +26,9 @@ span.icon {
 span.buttonText {
     display: inline-block;
     vertical-align: middle;
-    font-size: var(--font-size-s);
+    padding-left: 42px;
+    padding-right: 42px;
+    font-size: 14px;
     font-weight: bold;
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;

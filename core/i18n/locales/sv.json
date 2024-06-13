@@ -645,14 +645,5 @@
 	"A part-of-speech tagger": "En part-of-speech-taggare",
 	"Symbol Search": "Symbolsökning",
 	"Symbol Search with ARASAAC": "Symbolsökning med ARASAAC",
-	"No images found.": "Inga bilder hittades.",
-	"translate-ai.2.0.hf_tr.title": "AI Textöversättare",
-	"translate-ai.2.0.hf_tr.description": "Den här funktionen översätter text med hjälp av en AI översättningsmodell",
-	"translate-ai.2.0.hf_tr.source-title": "https://huggingface.co/",
-	"translate-ai.2.0.hf_tr.source-url": "https://huggingface.co/",
-	"translate-ai.2.0.hf_tr.howToUse": "",
-	"Hugging Face: Translate Paragraph": "Hugging Face: Översätt stycke",
-	"Translate a paragraph via Hugging Face API": "Översätt ett stycke via Hugging Face API",
-	"Hugging Face: Translate Word": "Hugging Face: Översätt ord",
-	"Translate a word via Hugging Face API": "Översätt ett ord via Hugging Face API"
+	"No images found.": "Inga bilder hittades."
 }

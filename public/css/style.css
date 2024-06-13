@@ -1,11 +1,13 @@
 /*SITE*/
 
+@import "./global.css";
+
 #er-logo {
     max-width: 120px;
 }
 
 html {
-    font-size: 18px;
+    font-size: var(--font-size-l);
 }
 
 main{
@@ -17,11 +19,11 @@ main{
     height: 50px;
     bottom: 0;
     left: 0;
-    line-height: 40px;
+    line-height: var(--spacing-xxxl);
     text-align: center;
     width: 100%;
     margin-top: 50px;
-    font-size: 16px;
+    font-size: var(--font-size-m);
 }
 
 #footer ul{
@@ -32,18 +34,18 @@ main{
 }
 #footer .ec{
     text-align: left;
-    line-height: 20px;
+    line-height: var(--spacing-ml);
 }
 
 footer .ec_flag{
     max-height: 50px;
     float: left;
-    margin-right: 20px;
+    margin-right: var(--spacing-ml);
 }
 
 /* client welcome */
 .client_welcome_hr {
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-xxxl);
 }
 
 /* Client caretaker register */
@@ -62,7 +64,7 @@ footer .ec_flag{
 }
 
 .caretaker_list_heading {
-    margin-top: 20px;
+    margin-top: var(--spacing-ml);
     margin-bottom: 30px;
 }
 
@@ -78,11 +80,11 @@ footer .ec_flag{
 .radio_button_icon {
     max-height: 50px;
     display: inline;
-    padding-left: 20px;
+    padding-left: var(--spacing-ml);
 }
 
 .category-header {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-ml);
 }
 
 .singleSelectList-option-container {
@@ -95,7 +97,7 @@ footer .ec_flag{
 }
 
 .tool-card-title label {
-    font-size: 22px;
+    font-size: var(--font-size-xl);
 }
 
 /* Audio Player */
@@ -119,7 +121,7 @@ footer .ec_flag{
 
 .er-audio-player-float {
     float: left;
-    margin-right: 20px;
+    margin-right: var(--spacing-ml);
 }
 
 .er-audio-player > img {
@@ -132,18 +134,18 @@ footer .ec_flag{
 }
 
 .er-audio-player.active {
-    background-color: #8FAADC !important;
+    background-color: var(--color-active) !important;
 }
 
 .er-audio-player-text-highlight {
-    background-color: yellow;
+    background-color: var(--color-highlight);
 }
 
 
 /* INFO CONTAINER */
 
 .info_container{
-    margin-top: 20px;
+    margin-top: var(--spacing-ml);
     text-align: center;
 }
 

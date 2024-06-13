@@ -5,7 +5,7 @@ class SpinnerBusyAnimation extends BusyAnimation{
 
         this.numberOfBusyRequests = 0;
 
-        $("body").append('<div id="er-busy-animation" style="display: none" class="lds-ring"><div></div><div></div><div></div><div></div></div>');
+        $("body").append('<div id="er-busy-animation" style="display: none" class="lds-ring" aria-hidden="true"><div></div><div></div><div></div><div></div></div>');
         $(document).on('mousemove', function(e){
             $('#er-busy-animation').css({
                 left:  e.pageX-30,

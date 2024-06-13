@@ -73,7 +73,6 @@ class Dictionary extends base.EngineBase {
         if (replacementsFound) {
             callback(result);
         } else {
-            const localeService = require("../../../../core/i18n/locale-service");
             const message = localeService.translateToLanguage(
                 "No content replacements found on this page.", profile.locale);
             callback(new ioType.IOTypes.NoResult(message));

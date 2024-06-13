@@ -24,14 +24,14 @@
             <main>
                 <div class="row">
                     <div class="column">
-                        <h1 id="page_client_welcome_title">
+                        <h1 id="page_client_welcome_title"  aria-label="Client Welcome Title">
 
                             {{{createTTSButton "page_client_welcome_title" lang}}}{{page_client_welcome_title}}</h1>
                     </div>
 
                 </div>
                 <hr class="client_welcome_hr">
-                <div class="row">
+                <div class="row" aria-label="Client Welcome Content">
                         <div class="small-12 columns">
 
 
@@ -61,7 +61,7 @@
 
                     {{#if user}}
                         {{#hasRole user "client"}}
-                            <div class="small-12 columns">
+                            <div class="small-12 columns"  aria-label="Client Configuration Section">
                                 <br />
                                 <!--<img class="page-client-welcome-settings-icon" aria-hidden="true" alt="welcome settings" src="../images/settings_icon.png">-->
                                 <a class="button button-settings" href="/client/configure?id={{user.id}}">{{page_client_welcome_to_configuration_link_text}}</a>
